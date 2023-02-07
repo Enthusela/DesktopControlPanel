@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Gallery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles.css" rel="stylesheet">
+        <link href="gallery.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="gallery.js"></script>
+    </head>
+    <body>
+        <!-- Base Gallery View -->
+        <div class="container-fluid">
+            <!-- Nav elements -->
+            <ul class="nav nav-tabs nav-justified bg-white">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./brief.html">Project Brief</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./timeline.html">Timeline</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./parts.html">Parts List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./gallery.html">Gallery</a>
+                </li>
+            </ul>
+            <h1 class="text-center">Image Gallery</h1>
+            <!-- Gallery Images -->
+            <div class="row mb-3">
+                <div id="galleryImagesCol" class="col-sm">
+                    <img src="imgs/20230128_163933_faceplateControllingARGB.jpg" class="img-gallery hover-shadow cursor" alt="ARGB LEDs in PC being controlled from faceplate after reconnecting to Arduino/breadboard">
+                    <img src="imgs/20230125_145658_faceplateCircuitWiring.jpg" class="img-gallery hover-shadow cursor" alt="Wiring from faceplate after reconnectiong to Arduino/breadboard">
+                    <img src="imgs/20230124_191904_faceplateInPositionClose.jpg" class="img-gallery hover-shadow cursor" alt="Close up of prototype faceplate in position under computer monitors">
+                    <img src="imgs/20230124_191834_faceplateInPosition.jpg" class="img-gallery hover-shadow cursor" alt="Prototype faceplate in position under computer monitors">
+                    <img src="imgs/20230124_190238_faceplateWiringSwitchgear.jpg" class="img-gallery hover-shadow cursor" alt="Close-up of electrical wiring for faceplate switchgear">
+                    <img src="imgs/20230124_190232_faceplateWiring.jpg" class="img-gallery hover-shadow cursor" alt="Electrical wiring on rear of faceplate prototype">
+                    <img src="imgs/20230123_170326_faceplateWithSwitchgear.jpg" class="img-gallery hover-shadow cursor" alt="MDF board faceplate prototype with switchgear installed">
+                    <img src="imgs/20230122_191723_faceplateMarkdown.jpg" class="img-gallery hover-shadow cursor" alt="MDF board faceplate prototype with cutouts marked out">
+                    <img src="imgs/20230122_191723.jpg" class="img-gallery hover-shadow cursor" alt="">
+                    <img src="imgs/20230113_221242.jpg" class="img-gallery hover-shadow cursor" alt="PC audio output device switch">
+                    <img src="imgs/20230101_021136.jpg" class="img-gallery hover-shadow cursor" alt="Control panel prototype with main volume knob and control switches added">
+                    <img src="imgs/20221204_150036.jpg" class="img-gallery hover-shadow cursor" alt="Control panel prototype with improved PSU connection">
+                    <img src="imgs/20221122_200629.jpg" class="img-gallery hover-shadow cursor" alt="ARGB control circuit prototype with very hacky connection to 650W PC PSU">
+                    <img src="imgs/20220926_191247.jpg" class="img-gallery hover-shadow cursor" alt="Eight-device ARGB control circuit prototype with noisy wall-wart power supply">
+                    <img src="imgs/20220922_201005.jpg" class="img-gallery hover-shadow cursor" alt="First 'control panel'! VU meters with ARGB control pots">
+                    <img src="imgs/20220922_191001.jpg" class="img-gallery hover-shadow cursor" alt="First test of the VU meter driver circuit">
+                    <img src="imgs/20220922_144709.jpg" class="img-gallery hover-shadow cursor" alt="Partially-assembled VU meter driver circuit">
+                    <img src="imgs/20220922_140303.jpg" class="img-gallery hover-shadow cursor" alt="VU meter driver circuit kit from JLM Audio">
+                    <img src="imgs/20220915_212349.jpg" class="img-gallery hover-shadow cursor" alt="Close-up of ARGB wiring on prototype ARGB controller">
+                    <img src="imgs/20220915_212337.jpg" class="img-gallery hover-shadow cursor" alt="ARGB control circuit prototype for PC LED devices">
+                    <img src="imgs/20220901_080717.jpg" class="img-gallery hover-shadow cursor" alt="VU meter from Technics tape deck">
+                    <img src="imgs/20220828_102625.jpg" class="img-gallery hover-shadow cursor" alt="Prototype ARGB color temperature controller">
+                    <img src="imgs/20220824_190933.jpg" class="img-gallery hover-shadow cursor" alt="First test of ARGB control with Arduino">
+                </div>
+            </div>
+        </div>
+        <!-- Lightbox -->
+        <div id="lightboxModal" class="lightbox-modal">
+            <div id="lightboxImageRow" class="row-lightbox-img">
+                <!-- Main image -->
+                <div id="lightboxImageNumber" class="image-number translucent-background"></div>
+                <span id="lightboxCloseButton" class="close-button translucent-background cursor" onclick="closeLightboxModal()">&times;</span>
+                <img id="lightboxImage" src="imgs/20220824_190933.jpg" class="img-lightbox" alt="First test of ARGB control with Arduino (default image)">
+                <!-- Caption -->
+                <p id="caption" class="caption-container"></p>
+                <!-- Next/previous control -->
+                <a class="prev translucent-background cursor" onclick="incrementLightboxImage(-1)">&#10094;</a>
+                <a class="next translucent-background cursor" onclick="incrementLightboxImage(1)">&#10095;</a>
+            </div>
+            <!-- Thumbnails -->
+            <div id="lightboxThumbnails" class="row-lightbox-thumbs justify-content-center"></div>
+        </div>
+    </body>
+</html>
