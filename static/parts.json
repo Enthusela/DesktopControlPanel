@@ -1,0 +1,102 @@
+[
+    {
+        "id":1,
+        "qty":1,
+        "desc":"Arduino Mega 2560"
+    },
+    {
+        "id":2,
+        "qty":3,
+        "desc":"Potentiometer, 1Kohm, Linear"
+    },
+    {
+        "id":3,
+        "qty":2,
+        "desc":"Encoder breakout board for Arudino"
+    },
+    {
+        "id":4,
+        "qty":6,
+        "desc":"Resistor, 220ohm"
+    },
+    {
+        "id":5,
+        "qty":8,
+        "desc":"Resistor, 470ohm"
+    },
+    {
+        "id":6,
+        "qty":1,
+        "desc":"Breadboard jumper cables, many and varied"
+    },
+    {
+        "id":7,
+        "qty":6,
+        "desc":"LED, Typical 5mm package, Yellow"
+    },
+    {
+        "id":8,
+        "qty":1,
+        "desc":"LED, Typical 5mm package, Green"
+    },
+    {
+        "id":9,
+        "qty":3,
+        "desc":"Knob, Moog Voyager, Medium, suits faceplate potentiometers"
+    },
+    {
+        "id":10,
+        "qty":1,
+        "desc":"Pointer, Moog Voyager, suits faceplate encoder"
+    },
+    {
+        "id":11,
+        "qty":4,
+        "desc":"Rocker Switch, Moog Voyager"
+    },
+    {
+        "id":12,
+        "qty":1,
+        "desc":"Potentiometer, 10Kohm, Logarithmic, from Technics 612, satisfyingly clicky"
+    },
+    {
+        "id":13,
+        "qty":1,
+        "desc":"Knob, from Technics 612, suits potentiometer from same"
+    },
+    {
+        "id":14,
+        "qty":2,
+        "desc":"Analog VU Meter, from Technics 612"
+    },
+    {
+        "id":15,
+        "qty":1,
+        "desc":"Toggle buttons, set of three, from Technics 612"
+    },
+    {
+        "id":16,
+        "qty":1,
+        "desc":"Soundcard, Scarlett 6i6 Gen 2"
+    },
+    {
+        "id":17,
+        "qty":4,
+        "desc":"Toggle switch, SPST, 29.5 mm x 17 mm"
+    },
+    {
+        "id":18,
+        "qty":1,
+        "desc":"Toggle switch, Momentary, 29.5 mm x 17 mm"
+    },
+    {
+        "id":19,
+        "qty":1,
+        "desc":"VU meter driver circuit, JLM Audio Kit"
+    },
+    {
+        "id":20,
+        "qty":1,
+        "desc":"E-ink Display, 7-inch, 5-color, Waveshare"
+    }
+]
