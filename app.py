@@ -1,21 +1,15 @@
 import os
 
-import sqlalchemy
-from PIL import Image
-from PIL.ExifTags import TAGS
-from flask import Flask, flash, redirect, render_template, request, session
-
-IMAGE_ALTS = {}
+# from PIL import Image
+# from PIL.ExifTags import TAGS
+from flask import Flask, flash, redirect, render_template, request
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 app = Flask(__name__)
 
-@app.after_request
-def after_request(response):
-    """Ensure responses aren't cached"""
-    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    response.headers["Expires"] = 0
-    response.headers["Pragma"] = "no-cache"
-    return response
+app.wsgi_app = ProxyFix(
+    app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1
+)
 
 @app.route("/")
 def index():
