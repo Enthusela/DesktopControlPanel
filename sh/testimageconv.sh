@@ -1,0 +1,1 @@
+python /home/nathanw/Documents/cs50_final_project/eink/python/bmp7colorquant.py '/home/nathanw/Documents/cs50_final_project/eink/bmp' 'capture_nasa'
