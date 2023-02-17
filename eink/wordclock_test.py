@@ -23,7 +23,7 @@ try:
     logging.info("Clear")
     epd.Clear()
 
-    # read bmp file 
+    # Read bmp file 
     logging.info("Clearing and displaying bmp file...")
     Himage = Image.open(os.path.join(picdir, 'capture_wc.bmp'))
     epd.display(epd.getbuffer(Himage))
