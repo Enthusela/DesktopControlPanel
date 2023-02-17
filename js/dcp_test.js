@@ -22,6 +22,6 @@ async function timeout(ms) {
     await page.setViewport({width: 800, height: 480});
     const date = new Date;
     const date_suffix = date.toDateString() + '_' + date.toTimeString();
-    await page.screenshot({path: '/home/nathanw/Documents/cs50_final_project/screenshots/capture_wc.png'});
+    await page.screenshot({path: '/home/nathanw/Documents/cs50_final_project/eink/png/capture_wc.png'});
     await browser.close();
 })();

@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
-picdir = os.path.abspath("/home/nathanw/Documents/cs50_final_project/eink/bmps")
+picdir = os.path.abspath("/home/nathanw/Documents/cs50_final_project/eink/bmp")
 libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
 if os.path.exists(libdir):
     sys.path.append(libdir)
@@ -24,8 +24,9 @@ try:
     epd.Clear()
 
     # Read bmp file 
-    logging.info("Clearing and displaying bmp file...")
+    logging.info("Getting bmp file...")
     Himage = Image.open(os.path.join(picdir, 'capture_wc.bmp'))
+    logging.info("Displaying bmp file...")
     epd.display(epd.getbuffer(Himage))
     logging.info("Sleeping three seconds...")
     epd.sleep()
