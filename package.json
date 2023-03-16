@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "puppeteer-core": "^19.7.1"
+    "onoff": "^6.0.3",
+    "puppeteer-core": "^19.7.1",
+    "serialport": "^10.5.0",
+    "socket.io": "^4.6.1"
   }
 }

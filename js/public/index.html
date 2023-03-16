@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width initial-scale=1">
+    </head>
+    <body>
+        <h1>Control LED Light</h1>
+        <input id="onOff" type="checkbox" checked="true">On/Off
+        <p>
+		<label for="hsv_hue">Hue</label>
+	        <input id="hsv_hue" type="number" placeholder="Hue" value ="0" min="0" max="255">
+	</p>	
+	<p>
+	        <label for="hsv_saturation">Saturation</label>
+	        <input id="hsv_saturation" type="number" placeholder="Sat" value="255" min="0" max="255">
+	</p>
+	<p>	
+	        <label for="hsv_brightness">Brightness</label>
+	        <input id="hsv_brightness" type="number" placeholder="Val" value="255" min="0" max="255">
+	</p>
+        <!-- Include client-side socket.io script -->
+        <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+        <script>
+            var socket = io();
+
+            window.addEventListener('load', function () {
+                var checkbox = document.getElementById('onOff');
+                checkbox.addEventListener('change', function () {
+                    // Check if light box is checked, convert status to number, and send to server
+                    socket.emit('onOff', Number(this.checked));
+                });
+                var numberInputs = document.querySelectorAll("[id^='hsv_']");
+                for (var i = 0; i < numberInputs.length; i++) {
+                    numberInputs[i].addEventListener('change', function () {
+                        emitNumberInputValue(this.id);
+                    });
+                }
+            });
+
+            // Get button status from client
+            socket.on('onOff', function (data) {
+                // Change checkbox according to push button on raspi
+                document.getElementById('onOff').checked = data;
+                // Send push button status back to the server
+                socket.emit('onOff', data);
+            });
+
+            // Function to emit the name and value of a number input
+            function emitNumberInputValue(id) {
+                var input = document.getElementById(id);
+                var value = constrainTo8Bit(input.value);
+                socket.emit(id, value);
+            }
+
+            function constrainTo8Bit(value) {
+                if (isNaN(value)) {
+                    return 0;
+                }
+                return Math.min(Math.max(value, 0), 255);
+            }
+        </script>
+    </body>
+</html>
