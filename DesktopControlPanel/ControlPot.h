@@ -10,13 +10,19 @@ class ControlPot {
             uint16_t vMin,
             uint16_t vMax,
             SoftTakeoverLEDs *stol=NULL);
-        int16_t getValue(bool ctrlModeReactivated=false);
+        bool getActive();
+        bool setActive(bool a);
+        int16_t getValue();
+        int16_t getValueSTO(bool ctrlModeReactivated=false);
         int16_t getValueMax();
         float getValuePercent();
+        void setValue();
+        void sendPotPosition();
     private:
         Potentiometer *pot;
         SoftTakeoverLEDs *LEDs;
         bool softTakeoverLatched = false;
+        bool active = false;
         int16_t ledAngleMax;     // Angular position of CW-most soft takeover LED
         int16_t ledAngleMin;     // Angular position of CCW-most soft takeover LED
         int16_t ledAngleSpacing; // Angular spacing between soft takeover LEDs

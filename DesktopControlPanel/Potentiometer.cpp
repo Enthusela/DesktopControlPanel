@@ -5,12 +5,14 @@ Potentiometer::Potentiometer(
             uint16_t vMax,
             int16_t aMin,
             int16_t aMax,
-            bool log=false)
+            bool log=false,
+            Adafruit_DCMotor *mtr=NULL)
     : pin(p),
     valueMax(vMax),
     angleMin(aMin),
     angleMax(aMax),
-    logarithmic(log)
+    logarithmic(log),
+    motor(mtr)
     {
         pinMode(pin, INPUT);
     }
@@ -49,4 +51,40 @@ uint16_t Potentiometer::convertValueIfLogarithmicPot() {
 
 uint16_t Potentiometer::getValueMax() {
     return valueMax;
+}
+
+void Potentiometer::moveToValue(uint16_t v) {
+    if (motor == NULL || abs(v - value) <= diffThld) {
+        movingToValue = false;
+    } else {
+        targetValue = v;
+        movingToValue = true;
+    }
+}
+
+void Potentiometer::moveMotor() {
+    if (motor == NULL) {
+        return;
+    }
+    if (movingToValue) {
+        int16_t diff = targetValue - getValue();
+        if (abs(diff) <= diffThld) {
+            motor->setSpeed(0);
+            motor->run(RELEASE);
+            movingToValue = false;
+        } 
+        else {
+            if (diff >= 0) {
+                motor->run(BACKWARD);
+            } else {
+                motor->run(FORWARD);
+            }
+            uint8_t motorSpeed = map(abs(diff), 0, valueMax, 42, 196);
+            motor->setSpeed(motorSpeed);
+        }
+    }
+}
+
+bool Potentiometer::moving() {
+    return movingToValue;
 }

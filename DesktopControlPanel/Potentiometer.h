@@ -10,12 +10,16 @@ class Potentiometer {
             uint16_t valueMax,
             int16_t angleMin,
             int16_t angleMax,
-            bool log=false);        
-            int16_t getAngle();
-            int16_t getAngleMin();
-            int16_t getAngleMax();
-            uint16_t getValue();
-            uint16_t getValueMax();
+            bool log=false,
+            Adafruit_DCMotor *mtr=NULL);        
+        int16_t getAngle();
+        int16_t getAngleMin();
+        int16_t getAngleMax();
+        uint16_t getValue();
+        uint16_t getValueMax();
+        void moveToValue(uint16_t v);
+        bool moving();
+        void moveMotor();
     private:
         uint16_t getDenoisedPinReading();
         uint16_t convertValueIfLogarithmicPot();
@@ -27,7 +31,12 @@ class Potentiometer {
         uint16_t value;
         uint16_t valueMax;
         bool logarithmic;
+        Adafruit_DCMotor *motor;
         bool softTakeoverLatched = false;
+        bool movingToValue = false;
+        uint16_t targetValue = 0;
+        uint16_t diffThld = 5;
+
 };
 
 #endif
