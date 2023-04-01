@@ -1,0 +1,8 @@
+Digital systems do have their considerable advantages though.
+They're modifiable, they're powerful, they're self-contained and easy to obtain, ready to go.
+They have an incredibly wide range of potential functions.
+They're easier to personalize, easier to design, at least for some functions.
+They're more consistent, as in they have no variation in electrical outputs due to components, whereas an analog system might be different to another supposedly identical one because of tiny variations as a result of manufacturing different electrical components like resistors, capacitors, etc.
+In other words, analog devices are much nicer, but digital devices are much easier to actually make.
+The goal then is to create a device that matches as much of the warmth of purpose-built analog devices with the ease of use and flexibility of digital devices.
+Wherever possible, the advantages of one should be leveraged to compensate for the disadvantages of the other.

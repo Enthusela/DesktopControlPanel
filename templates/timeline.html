@@ -4,38 +4,207 @@
     Project Timeline
 {% endblock %}
 
-{% block main %}    
+{% block main %}
+    <link href="/static/timeline.css" rel="stylesheet">
+    <script src="/static/timeline.js"></script>
     <div class="container-fluid">
         <h1 class="text-center">Project Timeline</h1>
-        <!-- TODO: implement better timeline format, similar to how I improved on the Parts List table -->
-        <!-- TODO: add images to timeline entries -->
-        <!-- TODO: Fill out gaps in timeline entries (currently going off images) -->
-        <ul>
-            <li>August 2022: Project start: initial concept drawings made.</li>
-            <li>
-                August 2022: First, most important question answered: Is the standard 3-pin ARGB connector something you can just plug into an Arduino and control?
-                Answer: Yes. The FastLED library exists for exactly this purpose, and works with a number of common ARGB protocols.
-                As it turns out, the CoolerMaster fans I have use the most common of these protocols.
-            </li>
-            <li>24th August 2022: First successful test with Arduino-controlled ARGB devices.</li>
-            <li>28th August 2022: First prototype controller with temperature-based color control.</li>
-            <li>1st September 2022: Successfully salvaged VU meters from Technics 612 Cassette Tape Deck.</li>
-            <li>15th September 2022: Prototype ARGB controller upgraded with manual HSV color control. Expanded circuit to include all ARGB devices in my PC. Issues with color stablity persist.</li>
-            <li>22nd September 2022: Built and tested VU meter driver circuit from JLM Audio.</li>
-            <li>22nd November 2022: Solved issue of random noise on ARGB color lines by removing wall-wart power supplies from the circuit. Successfully tested powering circuit off my old PC PSU.</li>
-            <li>4th December 2022: First prototype control panel: ARGB control circuit in place under PC monitor with steady power from PC PSU, plus VU meters in place atop SoundCard.</li>
-            <li>December 2022: Expanded prototype control panel with PC audio output device control.</li>
-            <li>December 2022: Expanded prototype control panel with Manual/Temperature-based color control.</li>
-            <li>December 2022: Expanded prototype control panel with additional potentiometer from Technics 612.</li>
-            <li>December 2022: Expanded prototype control panel with PC volume control. Includes main volume control and app-specific volume control.</li>
-            <li>December 2022: Expanded prototype control panel with soft-takeover logic between potentiometer modes.</li>
-            <li>January 2023: At some point in here the color control started having issues again. One fan in particular was noisy in certain Hue ranges, and all fans were struggling to replicate white. Limiting the maximum output brightness solved both issues: still no idea why.</li>
-            <li>22nd January 2023: Began work on prototype control panel faceplate. Faceplate constructed out of single piece of MDF for ease of manufacture. Actually, it went really well, translating from the journal page to the MDF markdown easily and with no major reworks required.</li>
-            <li>23rd January 2023: Completed prototype faceplate; wiring not completed yet, but just having it there under my monitor, in-place and actual-size, is incredibly satisfying.</li>
-            <li>24th January 2023: Completed wiring up the prototype control panel. This was two days of patient soldering to get jumper cables long enough to snake out from behind the faceplate, leaving the breadboard accessible. The wiring itself went off mostly without a hitch, with only a few minor reworks identified over the following day or two.</li>
-            <li>26th January 2023: Completed prototype control panel (finally) by finishing re-wiring the faceplate into the Arduino/breadboard. Managed to significantly reduce the size of the breadboard by consolidating most of the wiring onto the Arduino board itself; besides the I/O pins it's mostly just 5V/Gnd connections.</li>
-            <li>31st January 2023: Took delivery of a 7-inch, 5-color E-ink display for the centre of the faceplate. It looks great even with nothing on it.</li>
-            <li>1st February 2023: Started testing Arduino code to control mains outlets via RF and air-conditioning unit via IR. IR hardware works but the protocol is not recognised: should just be a software/library fix. RF hardware does not appear to work but it's just a 5-dollar breakout, and some of the forum folk seem to those can be dodgy: looking like more of a hardware fix.</li>
-        </ul>
+        <div class="journal-container">
+            <div class="journal-month">
+                <h2 class="month-heading">March 2023</h2>
+                
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Modelling the final product</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain modelling the final product</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Finally, an excuse to incorporate nixie tubes</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain incorporating nixie tubes</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Prototyping motorised takeover</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain prototyping motorised takeover</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Prototyping wifi ARGB controller modules for strip-lighting</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain prototyping wifi ARGB controller modules for strip-lighting</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="journal-month">
+                <h2 class="month-heading">February 2023</h2>
+                
+                <div class="journal-entry">
+                    <h2 class="journal-heading">One big happy family: coordinating Arduinos and PCs with a Raspberry Pi</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain coordinating Arduinos and PCs with a Raspberry Pi</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Misadventures in spoofing IR remotes (or "What's the *deal* with air-conditioners?")</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain misadventures in spoofing IR remotes</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Adventures in spoofing RF remotes.</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain adventures in spoofing RF remotes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="journal-month">
+                <h2 class="month-heading">January 2023</h2>
+
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Generating content in real-time for the e-ink display</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain generating content in real-time for the e-ink display</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Full-size Control Panel prototype including e-ink display</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain full-size Control Panel prototype including e-ink display</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Continued ARGB lighting Issues</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain continued ARGB lighting issues</p>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+
+            <div class="journal-month">
+                <h2 class="month-heading">December 2022</h2>
+
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Soft takeover</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain soft takeover</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Controlling PC volume, app by app</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain controlling PC volume, app by app</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">The first prototype Control Panel</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo, this is where I'll explain the first prototype Control Panel</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="journal-month">
+                <h2 class="month-heading">November 2022</h2>
+                
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Solving the random-noise issue</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="journal-month">
+                <h2 class="month-heading">September 2022</h2>
+
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Upgrading the ARGB controller to control my whole PC case</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Salvaging VU meters</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            <p>Body text yo</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="journal-month">
+                <h2 class="month-heading">August 2022</h2>
+                <div class="journal-entry">
+                    <h2 class="journal-heading">The first ARGB controller prototype (including temperature control)</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            Body text yo
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="journal-entry">
+                    <h2 class="journal-heading">Let's make a Mood Board</h2>
+                    <div class="journal-body">
+                        <div class="journal-text">
+                            Let's make a Mood Board
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- But first, some context -->
+                {% include "posts/post_2022-08_1.html" %}
+            </div>
+        </div>
     </div>
 {% endblock %}
