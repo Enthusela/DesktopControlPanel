@@ -1,0 +1,25 @@
+<%- include('../partials/template', {
+    title: 'Project Timeline',
+    main: `
+        <link href="/public/css/timeline.css" rel="stylesheet">
+        <div class="container-fluid">
+            <h1 class="text-center">Project Timeline</h1>
+            <div class="journal-container">
+
+                <div class="journal-month">
+                    <h2 class="month-heading">August 2022</h2>
+
+                    <div class="journal-entry" data-filename="post_2022-08_2">
+                        <h2 class="journal-heading">Let's make a Mood Board</h2>
+                    </div>
+                    
+                    <div class="journal-entry" data-filename="post_2022-08_1">
+                        <h2 class="journal-heading">But first, some context</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="/public/js/timeline.js"></script>
+    `
+}) %>

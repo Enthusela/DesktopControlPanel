@@ -1,0 +1,61 @@
+<%- include('template', {
+    title: 'Gallery',
+    main: `
+        <link href="/public/gallery.css" rel="stylesheet">
+        <script src="/public/gallery.js"></script>
+        <div class="container-fluid">
+            <div class="row mb-3 mt-5">
+                <div id="galleryImagesCol" class="col-sm">
+                    <img src="/public/imgs/20230219_173935_controlPanelWithDisplay.jpg" class="img-gallery hover-shadow cursor" alt="Control panel with eink display installed">
+                    <img src="/public/imgs/20230217_194536_einkDisplayUnplugged.jpg" class="img-gallery hover-shadow cursor" alt="E-Ink display demonstrating image retention without power (spooky)">
+                    <img src="/public/imgs/20230217_190204_einkColorTestVisibleDithering.jpg" class="img-gallery hover-shadow cursor" alt="Close-up of color e-ink display with effect of dithering visible">
+                    <img src="/public/imgs/20230217_190151_einkColorTest.jpg" class="img-gallery hover-shadow cursor" alt="256-color test image on color e-ink display">
+                    <img src="/public/imgs/20230209_175035_einkDisplayEdgeOn.jpg" class="img-gallery hover-shadow cursor" alt="E-ink display shown edge-on, demonstrating fragility">
+                    <img src="/public/imgs/20230208_211818_headlessPiWithMuesli.jpg" class="img-gallery hover-shadow cursor" alt="Raspberry Pi running headless (Carman's muesli bar for scale)">
+                    <img src="/public/imgs/20230208_191757_raspiNucCaseGPIO.jpg" class="img-gallery hover-shadow cursor" alt="Raspberry Pi NUC case with GPIO headers">
+                    <img src="/public/imgs/20230208_191754_raspiNucCaseIO.jpg" class="img-gallery hover-shadow cursor" alt="Raspberry Pi NUC case with IO">
+                    <img src="/public/imgs/20230208_191745_raspiNucCase.jpg" class="img-gallery hover-shadow cursor" alt="Raspberry Pi NUC case">
+                    <img src="/public/imgs/20230208_162101_raspiNude.jpg" class="img-gallery hover-shadow cursor" alt="Raspberry Pi (finally got one!)">
+                    <img src="/public/imgs/20230128_163933_faceplateControllingARGB.jpg" class="img-gallery hover-shadow cursor" alt="ARGB LEDs in PC being controlled from faceplate after reconnecting to Arduino/breadboard">
+                    <img src="/public/imgs/20230125_145658_faceplateCircuitWiring.jpg" class="img-gallery hover-shadow cursor" alt="Wiring from faceplate after reconnectiong to Arduino/breadboard">
+                    <img src="/public/imgs/20230124_191904_faceplateInPositionClose.jpg" class="img-gallery hover-shadow cursor" alt="Close up of prototype faceplate in position under computer monitors">
+                    <img src="/public/imgs/20230124_191834_faceplateInPosition.jpg" class="img-gallery hover-shadow cursor" alt="Prototype faceplate in position under computer monitors">
+                    <img src="/public/imgs/20230124_190238_faceplateWiringSwitchgear.jpg" class="img-gallery hover-shadow cursor" alt="Close-up of electrical wiring for faceplate switchgear">
+                    <img src="/public/imgs/20230124_190232_faceplateWiring.jpg" class="img-gallery hover-shadow cursor" alt="Electrical wiring on rear of faceplate prototype">
+                    <img src="/public/imgs/20230123_170326_faceplateWithSwitchgear.jpg" class="img-gallery hover-shadow cursor" alt="MDF board faceplate prototype with switchgear installed">
+                    <img src="/public/imgs/20230122_191723_faceplateMarkdown.jpg" class="img-gallery hover-shadow cursor" alt="">
+                    <img src="/public/imgs/20230113_221242_PCAudioDevSwitchCloseUp.jpg" class="img-gallery hover-shadow cursor" alt="PC audio output device switch">
+                    <img src="/public/imgs/20230101_021136_prototypeControlPanel3.jpg" class="img-gallery hover-shadow cursor" alt="Control panel prototype with main volume knob and control switches added">
+                    <img src="/public/imgs/20221204_150036_prototypeControlPanel2.jpg" class="img-gallery hover-shadow cursor" alt="Control panel prototype with improved PSU connection">
+                    <img src="/public/imgs/20221122_200629_prototypeARGBControlCircuit2PSU.jpg" class="img-gallery hover-shadow cursor" alt="ARGB control circuit prototype with very hacky connection to 650W PC PSU">
+                    <img src="/public/imgs/20220926_191247_prototypeARGBControlCircuit2Noisy.jpg" class="img-gallery hover-shadow cursor" alt="Eight-device ARGB control circuit prototype with noisy wall-wart power supply">
+                    <img src="/public/imgs/20220922_201005_prototypeControlPanel1.jpg" class="img-gallery hover-shadow cursor" alt="First 'control panel'! VU meters with ARGB control pots">
+                    <img src="/public/imgs/20220922_191001_firstVUMeterDriverTest.jpg" class="img-gallery hover-shadow cursor" alt="First test of the VU meter driver circuit">
+                    <img src="/public/imgs/20220922_144709_VUMeterDriverKitPartAssembled.jpg" class="img-gallery hover-shadow cursor" alt="Partially-assembled VU meter driver circuit">
+                    <img src="/public/imgs/20220922_140303_VUMeterDriverKit.jpg" class="img-gallery hover-shadow cursor" alt="VU meter driver circuit kit from JLM Audio">
+                    <img src="/public/imgs/20220915_212349_prototypeARGBControlCircuitWiring.jpg" class="img-gallery hover-shadow cursor" alt="Close-up of ARGB wiring on prototype ARGB controller">
+                    <img src="/public/imgs/20220915_212337_prototypeARGBControlCircuit.jpg" class="img-gallery hover-shadow cursor" alt="ARGB control circuit prototype for PC LED devices">
+                    <img src="/public/imgs/20220901_080717_TechnicsVUMeter.jpg" class="img-gallery hover-shadow cursor" alt="VU meter from Technics tape deck">
+                    <img src="/public/imgs/20220828_102625_prototypeARGBController.jpg" class="img-gallery hover-shadow cursor" alt="Prototype ARGB color temperature controller">
+                    <img src="/public/imgs/20220824_190933_firstArduinoARGBTest.jpg" class="img-gallery hover-shadow cursor" alt="First test of ARGB control with Arduino">
+                </div>
+            </div>
+        </div>
+        <!-- Lightbox -->
+        <div id="lightboxModal" class="lightbox-modal">
+            <div id="lightboxImageRow" class="row-lightbox-img">
+                <!-- Main image -->
+                <div id="lightboxImageNumber" class="image-number translucent-background"></div>
+                <span id="lightboxCloseButton" class="close-button translucent-background cursor" onclick="closeLightboxModal()">&times;</span>
+                <img id="lightboxImage" src="/public/imgs/20220824_190933.jpg" class="img-lightbox" alt="First test of ARGB control with Arduino (default image)">
+                <!-- Caption -->
+                <p id="caption" class="caption-container"></p>
+                <!-- Next/previous control -->
+                <a class="prev translucent-background cursor" onclick="incrementLightboxImage(-1)">&#10094;</a>
+                <a class="next translucent-background cursor" onclick="incrementLightboxImage(1)">&#10095;</a>
+            </div>
+            <!-- Thumbnails -->
+            <div id="lightboxThumbnails" class="row-lightbox-thumbs justify-content-center"></div>
+        </div>
+    `
+}) %>

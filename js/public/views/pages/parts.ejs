@@ -1,0 +1,19 @@
+<%- include('template', {
+    title: 'Parts List',
+    main: `
+        <table
+            class="table table-striped"
+            data-toggle="table"
+            data-pagination="false"
+            data-sortable="true"
+            data-url="/public/parts.json">
+            <thead class="table-dark" id="parts-table-head">
+                <tr class="table-dark">
+                    <th data-field="id" data-sortable="true" scope="col">Part #</th>
+                    <th data-field="qty" data-sortable="true" scope="col">Qty.</th>
+                    <th data-field="desc" data-sortable="true" scope="col">Description</th>
+                </tr>
+            </thead>
+        </table>
+    `
+}) %>

@@ -1,0 +1,206 @@
+<%- include('../partials/template', {
+    title: 'Project Timeline',
+    main: `
+        <link href="/public/timeline.css" rel="stylesheet">
+        <script src="/public/timeline.js"></script>
+        <div class="container-fluid">
+            <h1 class="text-center">Project Timeline</h1>
+            <div class="journal-container">
+                <div class="journal-month">
+                    <h2 class="month-heading">March 2023</h2>
+                    
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Modelling the final product</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain modelling the final product</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Finally, an excuse to incorporate nixie tubes</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain incorporating nixie tubes</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Prototyping motorised takeover</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain prototyping motorised takeover</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Prototyping wifi ARGB controller modules for strip-lighting</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain prototyping wifi ARGB controller modules for strip-lighting</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="journal-month">
+                    <h2 class="month-heading">February 2023</h2>
+                    
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">One big happy family: coordinating Arduinos and PCs with a Raspberry Pi</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain coordinating Arduinos and PCs with a Raspberry Pi</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Misadventures in spoofing IR remotes (or "What's the *deal* with air-conditioners?")</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain misadventures in spoofing IR remotes</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Adventures in spoofing RF remotes.</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain adventures in spoofing RF remotes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journal-month">
+                    <h2 class="month-heading">January 2023</h2>
+
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Generating content in real-time for the e-ink display</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain generating content in real-time for the e-ink display</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Full-size Control Panel prototype including e-ink display</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain full-size Control Panel prototype including e-ink display</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Continued ARGB lighting Issues</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain continued ARGB lighting issues</p>
+                            </div>
+                        </div>
+                    </div>            
+                </div>
+
+                <div class="journal-month">
+                    <h2 class="month-heading">December 2022</h2>
+
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Soft takeover</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain soft takeover</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Controlling PC volume, app by app</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain controlling PC volume, app by app</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">The first prototype Control Panel</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo, this is where I'll explain the first prototype Control Panel</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="journal-month">
+                    <h2 class="month-heading">November 2022</h2>
+                    
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Solving the random-noise issue</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="journal-month">
+                    <h2 class="month-heading">September 2022</h2>
+
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Upgrading the ARGB controller to control my whole PC case</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Salvaging VU meters</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                <p>Body text yo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="journal-month">
+                    <h2 class="month-heading">August 2022</h2>
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">The first ARGB controller prototype (including temperature control)</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                Body text yo
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="journal-entry">
+                        <h2 class="journal-heading">Let's make a Mood Board</h2>
+                        <div class="journal-body">
+                            <div class="journal-text">
+                                Let's make a Mood Board
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <%- include('../posts/2022-08_1') %>
+                </div>
+            </div>
+        </div>
+    `
+}); %>

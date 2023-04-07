@@ -1,0 +1,91 @@
+<div class="journal-text">
+    I'm in a new living space that I want to have a calm, clean aesthetic with natural, human-friendly lighting, and that includes my PC setup. Just moved into a new apartment by myself, and I want to make it a satisfying and inviting living space, not just through the furnishing and layout but also through lighting, specifically warm, indirect, and/or low-angle lighting for the evenings. One idea in particular I'm quite enamoured with is time-based room lighting that starts with top-down cool-white during the day and transitions over the course of sunset to lower, warmer orange light during the evenings. I figure that would be a really cool marriage of modern tech with old, I mean REALLY old-school biochemistry to create a living space more in sync with the rhythms of the human body. If that sounds like I have my head in the clouds, well, I do, but half the reason I moved into my own place is to dream up silly things like that so if you're not on board, go read another blog (beer emoji).
+</div>
+<!-- unfurnished apartment -->
+<img class="journal-img" src="public/imgs/placeholder_blog_image.jpg">
+<div class="journal-text">
+    At any rate, this gave me my first design criteria:
+    <ol start="1">
+        <li>Fill out my living space with a warm, naturalistic aesthetic</li>
+    </ol>
+</div>
+<div class="journal-text">
+    My PC desk is in the living room, which is most of the apartment, so I want the PC setup itself to contribute to the feeling of the living space as well. I've just rebuilt my PC with a nice clean aesthetic, including glass case panels and interior lighting which could integrate really nicely with the rest of the space. I've also gone to a fair bit of trouble to build this custom pegboard which provides a wood-panelled backing for the entire desk (without actually being fixed to the wall, because this is a rental after all). I figure the PC desk is the perfect little corner of the living space to start with, and I can build on that to create a more cohesive aesthetic for the whole place.
+</div>
+<!-- initial PC desk setup, post-pegboard, pre-prototypes -->
+<img class="journal-img"src="public/imgs/placeholder_blog_image.jpg" >
+<div class="journal-text">
+    I decide I want to build a wood-and-metal control panel that emulates the look and feel of old analog music studios and incorporates some functions I want for the desk and the apartment overall. This started with the simple desire to have my external sound card angled up slightly, kind of like a little control panel, so that it felt more like a deliberately placed part of the setup rather than an afterthought placed wherever it fit.
+</div>
+<!-- messing around with the soundcard -->
+<img class="journal-img" src="" srcname="placeholder_blog_image">
+
+<div class="journal-text">
+    Considering I ended up not angling the faceplate at all (in fact I completely forgot all about it once I decided not to do it), it's amusing to review my notes from this period and see just how much time I spent taking measurements and doing the math to work out how to fit a raised soundcard in the tiny space underneath the monitor I had at the time.
+</div>
+<!-- extensive, ultimately unused maths -->
+<img class="journal-img" src="public/imgs/placeholder_blog_image.jpg">
+
+<div class="journal-text">
+    Abandonment of the issue aside, this gave me my second design criteria:
+    <ol start="2">
+        <li>Build a Control Panel</li>
+    </ol>
+</div>
+<div class="journal-text">
+    I start looking at examples of audio equipment being mounted in nice-looking ways. Inevitably I came across examples from music studios, and I start to see things I really like, including a lot of very warm, comfortable-looking rooms intended to be occupied for long periods and full of old analog equipment. Because the equipment in these spaces isn't digital, it's not on a screen but physically laid out for manual access by the user. This gives everything a sense of very deliberately placement, arranged in a sort of "control panel" layout that appeals to me a lot. There's also a lot of textural qualities present, with lots of wood, metal, and physical, tactile controls that even *looks* fun to just muck around with. The full set of images can be found on the "Mood Board" page.
+</div>
+<!-- music studio images -->
+<img class="journal-img" src="public/imgs/placeholder_blog_image.jpg">
+<div class="journal-text">
+    Music studios have another layer of fondness for me personally; DJing and a bit of music production is something I've been involved with in the past, and while I've been out of the game for a while now, I look back on those days very fondly.
+</div>
+<!-- Image of me from back in the day, plus maybe my old music room setup -->
+<img class="journal-img" src="public/imgs/placeholder_blog_image.jpg">
+<div class="journal-text">
+    So I'm thinking this would be a great aesthetic to emulate, which would both hark back to the good old days and build design/programming skills for my future, all while creating a genuinely pleasant living space. That would be really cool! 
+</div>
+<div class="journal-text">
+    So now I have my third design criteria:
+    <ol start="3">
+        <li>Emulate the look and feel of old analog music studios with textured surfaces and tactile controls</li>
+    </ol>
+</div>
+<div class="journal-text">
+    The last bothersome question at this point was, well, what is the control panel going to control? The only hardware I've incorporated so far is the sound card, but that doesn't require any external controls. After some thought I settled on ARGB lighting control as the main non-audio functionality for the control panel. I hit upon this after struggling to integrate multiple ARGB devices I already had using the manufacturer-specific software they're bundled with and (supposedly) locked to. I've got a variety of PC accessories with ARGB lighting that all run off manufacturer-specific software, which typically don't talk to each other for syncing automatically, and often don't even have the same feature set for syncing manually.
+</div>
+<!-- PC setup with multiple lighting sources -->
+<img class="journal-img" src="public/imgs/placeholder_blog_image.jpg">
+
+<div class="journal-text">
+    The software the manufacturers have saddled me with is typically bloatware. It consumes computer resources running functionality I don't want, while failing to reliably run the functions I do. CoolerMaster's "MasterPlus" software is particularly adept at inducing conniptions, starting with the inability to resize the window down from "floating at full resolution", continuing through crashing when you attempt to change lighting settings, to failing to register the "Add Mouse Macro" button without at least one restart. Dishonorable Mention also goes to SteelSeries' "SteelSeries GG" software, which automatically sets up a screen-capture service in the background for recording gameplay, which far exceeds the scope of responsibility for a mousepad.
+</div>
+<!-- MasterPlus being poorly-designed software -->
+<img class="journal-img" src="public/imgs/placeholder_blog_image.jpg">
+
+<div class="journal-text">
+    The last pain-point is definitely a subjective one: most of the lighting effects built into the software fall into the "Pulsating Rainbow" school of lighting, which has never been my thing.
+</div>
+<!-- I'm actually okay if my PC/living room doesn't display every color imaginable all at once -->
+<img class="journal-img" src="public/imgs/placeholder_blog_image.jpg">
+<div class="journal-text">
+    This kind of "GAMERRR" aesthetic is, I would say, the norm for anything marketed as a performance-oriented component with anything beyond a plain black or white finish, so implementing the more naturalistic aesthetic I'm after with a high-power PC requires some deliberate effort. Developing my own lighting control system would bypass the many issues with the default software and allow me to design my own lighting patterns and effects that suit the aesthetic I'm after. My own controller for the PC setup would also lay the groundwork for a more extensive control solution including room lighting as well.
+</div>
+<div class="journal-text">
+    So now I have my fourth and final design criteria:
+    <ol start="4">
+        <li>Include ARGB lighting control functionality for integration with the overall living space.</li>
+    </ol>
+</div>
+<div class="journal-text">
+    In summary, I now have my four main design criteria:
+    <ol>
+        <li>Fill out my living space with a warm, naturalistic aesthetic</li>
+        <li>Build a Control Panel</li>
+        <li>Emulate the look and feel of old analog music studios with textured surfaces and tactile controls</li>
+        <li>Integrate it with the overall living space by building ARGB lighting control functionality</li>
+    </ol>
+</div>
+<div class="journal-text">
+    Nice.
+</div>

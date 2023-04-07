@@ -1,0 +1,72 @@
+.journal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid #A0F; */
+    padding: 1rem;
+}
+
+.journal-month {
+    width: 100%;
+    margin-bottom: 1rem;
+    /* border: 1px solid #F00; */
+}
+
+.month-heading {
+    cursor: pointer;
+    /* border: 1px solid #F0F; */
+}
+
+.journal-entry {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid #0F0;
+    background-color: grey;
+}
+
+.journal-heading {
+    display: block;
+    cursor: pointer;
+    width: auto;
+    border: 1px solid #00F;
+    background-color: white;
+    /* align-self: flex-start; */
+}
+
+.journal-body {
+    display: none;
+    border: 1px solid #F00;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: white;
+}
+
+.journal-text {
+    /* TODO: decide on text justification/method */
+    display: block;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #000;
+}
+
+.journal-img {
+    display: block;
+    margin-bottom: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #F00;
+}
+
+.journal-text > ol {
+    margin-bottom: 0rem;
+}
