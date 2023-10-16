@@ -1,0 +1,22 @@
+All right, journal entry titled, the first ARGB controller prototype, including temperature control.
+So this was the first feature that I really needed to test for the control panel.
+This kind of made cool break, because if I couldn't get this to work, then, well, there wasn't really much point in proceeding.
+So my thought process was, well, we've got these ARGB devices, these fans, and they just have a three-pin header connection.
+That is it.
+And one of those pins is power, and one is ground, naturally.
+So yeah, the last one stopped.
+So the question was just, OK, well, whatever's coming out on that data pin, is that something that an Arduino can emulate, basically? Or I suppose, in theory, Raspberry Pi.
+But I have an Arduino, so I tested it with an Arduino.
+And I got lucky right off the bat.
+As it turns out, this is somewhat unsurprisingly not the first time someone's tried to do something like this.
+And libraries definitely exist for Arduino to control ARGB devices like this - or not necessarily like this; rather, exist to control ARGB devices in general, specifically ARGB strips of the kind that you see on Amazon and that kind of thing.
+So I found a couple libraries, one in particular, quite popular, called the FastLED Library.
+And then, oh, hang on.
+Hello? Yes, I'll come down right away.
+OK.
+OK.
+OK.
+OK.
+OK.
+OK.
+So I'm not sure if that worked, but I'm going to stop it there and start again, because I got a delivery.
