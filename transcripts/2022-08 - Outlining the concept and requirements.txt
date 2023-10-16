@@ -1,0 +1,53 @@
+
+
+Ok, so I said originally this whole project was blah blah blah, so how do I get from that to this? Well I guess I would say that once I had that idea and I said ok well look I'm going to angle it up.
+I mean originally it was just going to be a box, just a box, a wood box just to angle it up kind of like this and then we can have an image here, colon, one of the mood board images showing a piece of equipment in a wood box, there's like a machine, something like that is in there, so this is it.
+But then while I was looking at these things I started seeing all these old school music studio control panels that have the same sort of thing, they have a whole lot of integrated equipment, it's all kind of angled and presented to be a very clean and accessible user interface and I thought oh well that's really cool, but what would I put? You know right now I just have this one, this one sound card thing, I've got nothing else.
+So that was where it started, I had the box and then I saw some even cooler boxes and then I thought ok well if I can build a cooler box what can I have in it? So that's sort of the core question, enter, enter.
+So moving on, I've decided for the box what I'll put in it and at the same time I was having an issue which is that I've just designed this PC, well I've just fully rebuilt my PC, it's got a super clean look, it looks really nice and it's full of these ARGB LEDs which I'm thinking, like they're good and they work but I'm dealing with a lot of bullshit, what do you call it, like manufacturer software that you have to use to design them and trying to get them all synced up is ok when they're all one manufacturer and the software works but then of course I have items from different manufacturers and I have even items within the same manufacturer don't necessarily have the same specs and so trying to get it all to work was difficult enough as a box.
+So that's point two there.
+Point two, ARGB controllability devices is difficult, which brings us to point three which is I want my whole apartment to look nice and the PC is part of that.
+When I was starting the PC I had a whole lot of ideas about, actually let's simplify this down a bit.
+
+This is more of a side note rather than to the core concept, but I'm reading through my design notes and stuff which I did very early on and I'd forgotten how much time I actually spent trying to angle this sound card up and trying to come up with a design that would push the sound card up and angle it towards me and it still fit under the case and have all this other stuff built in.
+
+
+
+Context:
+- Point 1: I'm in a new living space that I want to have a calm, clean aesthetic with natural, human-friendly lighting, and that includes my PC setup.
+    - Just moved into a new apartment by myself, and I want to make it a satisfying and inviting living space, not just through the furnishing and layout but also through lighting, specifically warm, indirect, and/or low-angle lighting for the evenings.
+    [images of the unfurnished apartment?]
+    - My PC desk is in the living room, which is most of the apartment, so I want the PC setup itself to contribute to the feeling of the living space as well.
+    [image of the initial PC desk setup?]
+    - I've just rebuilt my PC with a nice clean aesthetic, including glass case panels and interior lighting which could integrate really nicely with the rest of the space. I've also gone to a fair bit of trouble to build this custom pegboard which provides a wood-panelled backing for the entire desk (without actually being fixed to the wall, because this is a rental after all).
+    - I figure the PC desk is the perfect little corner of the living space to start with, and I can build on that to create a more cohesive aesthetic for the whole place.
+
+- Point 2: I decide I want to build a wood-and-metal control panel that emulates the look and feel of old analog music studios and incorporates some functions I want for the desk and the apartment overall.
+    - This started with the simple desire to have my external sound card angled up slightly, kind of like a little control panel, so that it felt more like a deliberately placed part of the setup rather than an afterthought placed wherever it fit. Considering I ended up not angling the faceplate at all (in fact I completely forgot all about it once I decided not to do it), it's amusing to review my notes from this period and see just how much time I spent taking measurements and doing the math to work out how to fit a raised soundcard in the tiny space underneath the monitor I had at the time. 
+    - At any rate, I start looking at examples of audio equipment being mounted in nice-looking ways. Inevitably I came across examples from music studios, and I start to see things I really like, including a lot of very warm, comfortable-looking rooms intended to be occupied for long periods and full of old analog equipment. Because the equipment in these spaces isn't digital, it's not on a screen but physically laid out for manual access by the user. This gives everything a sense of very deliberately placement, arranged in a sort of "control panel" layout that appeals to me a lot.
+    - There's also a lot of textural qualities present, with lots of wood, metal, and physical, tactile controls that even *looks* fun to just muck around with.
+    - Music studios have another layer of fondness for me personally; DJing and a bit of music production is something I've been involved with in the past, and while I've been out of the game for a while now, I look back on those days very fondly. So I'm thinking this would be a cool kind of aesthetic to emulate, which would both hark back to the good old days while still creating a genuinely pleasant living space. That would be really cool!
+    - So now I have three main design criteria: control panel, textural/tactile surfaces, emulating old-school analog equipment. The next question was, well, what is the control panel going to control? At this point, the only idea I have is for the sound card to be mounted up, but that doesn't require any external controls.
+
+- Point 3: I settled on ARGB lighting control as the main non-audio functionality for the control panel.
+    - I hit upon this after struggling to integrate multiple devices using existing manufacturer-specific software.
+    - I've got a variety of devices with ARGB lighting that all run off manufacturer-specific software, which typically don't talk to each other for syncing automatically, and often don't even have the same feature set for syncing manually.
+    - Most of the available effects also fall into the "Pulsating Rainbow" category of lighting, which has never been my thing, and is even less appropriate given the direction I'm going with for my living space.
+    - My own controller system would improve the functionality of my existing setup, and allow me to build in my own lighting patterns and effects that suit the aesthetic I'm after.
+    - Importantly, my own controller for the PC setup would also lay the groundwork for a more extensive control solution including smart room-lighting as well, which would contribute a lot to my goals for the overall living space aesthetic.
+
+
+
+
+- This will sound very simple, but it's what kind of kicked this whole thing off, is I have an external sound card from my PC and it's just kind of sitting loose on my desk and I thought wouldn't that be cool if that was sort of angled up to face me? Just look, you know, put it in some kind of wood box, some kind of wooden mount, just something that looks a little bit more custom and a little bit more cool and just a bit more deliberate.
+
+
+
+So now I'm thinking, okay, so I want to build something more extensive and I want to try and build a kind of music studio style control panel, like a laid out whole bunch of controls and incorporate a whole bunch of switch gear and knobs and controls that I really like and I find that are just tactile and satisfying to operate and to look at and all that good stuff.
+
+And so I guess that brings me to the next question, which is, well, what am I going to put into it? So that's the top one.
+
+
+Okay, so where am I at? I know I want to make my apartment look sweet, and I know as part of that I want to make my PC desk setup emulate the look of a music studio.
+To do that I want to develop some kind of control panel thing that can be integrated into my setup and look really cool.
+And I know that I'm going to need to come up with some equipment, or some functionality I can build into it to make up the space, because right now I have all this space to build a control panel in, the bigger the better, and all I have is the sound card.
