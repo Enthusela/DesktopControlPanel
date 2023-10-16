@@ -49,7 +49,7 @@ app.get('/thumbs/:imgname', async (req, res) => {
     const imgName = req.params.imgname;
     const thumbnailHTMLPath = `/public/imgs/thumbs/${imgName}`;
     const thumbnailAbsolutePath = path.join(__dirname, 'public/imgs/thumbs', imgName);
-    if (fs.existsSync(thumbnailAbsolutePath)) {
+    if (false && fs.existsSync(thumbnailAbsolutePath)) {
         res.setHeader('Thumb-Path', thumbnailHTMLPath);
         res.end('ok');
         return;
@@ -60,18 +60,31 @@ app.get('/thumbs/:imgname', async (req, res) => {
         return;
     }
     try {
-        await sharp(highResPathAbsolute)
-        .resize({
-            width: 200,
-            height: 200
-        })
-        .toFile(thumbnailAbsolutePath);
+        await makeThumbnail(highResPathAbsolute, thumbnailAbsolutePath);
         res.setHeader('Thumb-Path', thumbnailHTMLPath);
         res.end('ok');
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send(`/thumbs/:imgname failed: ${error}`);
     }
 });
+
+async function makeThumbnail(hiresPath, thumbPath) {
+    try {
+        const metadata = await sharp(hiresPath).metadata();
+        const maxDimension = 720;
+        const scaleFactor = Math.min(maxDimension / metadata.width, maxDimension / metadata.height);
+        // failOn: 'error' solves issue loading jpegs from Samsung phones
+        await sharp(hiresPath, {failOn: 'error' })
+        .resize({
+            height: Math.round(metadata.height * scaleFactor),
+            width: Math.round(metadata.width * scaleFactor)
+        })
+        .withMetadata()
+        .toFile(thumbPath);
+    } catch (error) {
+        throw new Error(`Error: makeThumbnail(): ${error}`);
+    }
+}
 
 // Listen on port 8000
 app.listen(port, () => {
