@@ -7,6 +7,8 @@
 #include <chipsets.h>
 #include <math.h>
 #include <string.h>
+#include <Wire.h>
+#include <Adafruit_MotorShield.h>
 #include "DCPMiscFunctions.h"
 #include "DCPLightingFunctions.h"
 #include "Potentiometer.h"

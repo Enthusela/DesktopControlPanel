@@ -11,16 +11,23 @@ CHSV argbHSV;
 bool pcAudioMode = false;
 bool pcAudioModePrev = false;
 bool ctrlMode;
-bool ctrlModeChanged;
-bool ctrlModePrev;
 bool lightTemperatureMode = false;
-Potentiometer pot1 = Potentiometer(POT1_PIN, ANALOG_MAX, POT_ANGLE_MIN, POT_ANGLE_MAX, POT_LINEAR);
-Potentiometer pot2 = Potentiometer(POT2_PIN, ANALOG_MAX, POT_ANGLE_MIN, POT_ANGLE_MAX, POT_LINEAR);
-Potentiometer pot3 = Potentiometer(POT3_PIN, ANALOG_MAX, POT_ANGLE_MIN, POT_ANGLE_MAX, POT_LINEAR);
+// Motors
+// Init one motor on the Adafruit Motor Shield v2.3
+Adafruit_MotorShield AFMS = Adafruit_MotorShield();
+Adafruit_DCMotor *motor1 = AFMS.getMotor(1);
+Adafruit_DCMotor *motor2 = AFMS.getMotor(2);
+Adafruit_DCMotor *motor3 = AFMS.getMotor(3);
+
+Potentiometer pot1 = Potentiometer(POT1_PIN, ANALOG_MAX, POT_ANGLE_MIN, POT_ANGLE_MAX, POT_LINEAR, motor1);
+Potentiometer pot2 = Potentiometer(POT2_PIN, ANALOG_MAX, POT_ANGLE_MIN, POT_ANGLE_MAX, POT_LINEAR, motor2);
+Potentiometer pot3 = Potentiometer(POT3_PIN, ANALOG_MAX, POT_ANGLE_MIN, POT_ANGLE_MAX, POT_LINEAR, motor3);
 Potentiometer pot4 = Potentiometer(POT4_PIN, ANALOG_MAX, POT_ANGLE_MIN, POT_ANGLE_MAX, POT_LOGARITHMIC);
+
 SoftTakeoverLEDs pot1LEDs = SoftTakeoverLEDs(2, POT_ANGLE_MIN, POT_ANGLE_MAX, STO1_LED1_PIN, STO1_LED2_PIN);
 SoftTakeoverLEDs pot2LEDs = SoftTakeoverLEDs(2, POT_ANGLE_MIN, POT_ANGLE_MAX, STO2_LED1_PIN, STO2_LED2_PIN);
 SoftTakeoverLEDs pot3LEDs = SoftTakeoverLEDs(2, POT_ANGLE_MIN, POT_ANGLE_MAX, STO3_LED1_PIN, STO3_LED2_PIN);
+
 ControlPot ctrlPotKelv = ControlPot(&pot1, ARGB_LED_KELV_MIN, ARGB_LED_KELV_MAX, &pot1LEDs);
 ControlPot ctrlPotHue  = ControlPot(&pot1, ARGB_LED_HUE_MIN, ARGB_LED_HUE_MAX, &pot1LEDs);
 ControlPot ctrlPotSat  = ControlPot(&pot2, ARGB_LED_SAT_MIN, ARGB_LED_SAT_MAX, &pot2LEDs);
@@ -29,17 +36,17 @@ ControlPot ctrlPotPCVolApp1 = ControlPot(&pot1, 0, ANALOG_MAX, &pot1LEDs);
 ControlPot ctrlPotPCVolApp2 = ControlPot(&pot2, 0, ANALOG_MAX, &pot2LEDs);
 ControlPot ctrlPotPCVolApp3 = ControlPot(&pot3, 0, ANALOG_MAX, &pot3LEDs);
 ControlPot ctrlPotPCVolMain = ControlPot(&pot4, 0, ANALOG_MAX);
-ToggleSwitch tglAudio =     ToggleSwitch(SW_T_1_PIN, OPTO_1_ON_PIN, OPTO_1_OFF_PIN);
-// Opto pair 3 controls only one outlet only due to wiring issues: this is the behaviour I want for toggle 2
-ToggleSwitch tglMonitorMain =  ToggleSwitch(SW_T_2_PIN, OPTO_3_ON_PIN, OPTO_3_OFF_PIN);
-// Opto pair 2 controls only two outlets due to wiring issues: this is the behaviour I want for toggle 3
-ToggleSwitch tglMonitorBoth =  ToggleSwitch(SW_T_3_PIN, OPTO_2_ON_PIN, OPTO_2_OFF_PIN);
+
 uint16_t pcVolumeApp1;
 uint16_t pcVolumeApp2;
 uint16_t pcVolumeApp3;
 uint16_t pcVolumeMain;
 
-uint64_t stoLast;
+ToggleSwitch tglAudio =     ToggleSwitch(SW_T_1_PIN, OPTO_1_ON_PIN, OPTO_1_OFF_PIN);
+// Opto pair 3 controls only one outlet only due to wiring issues: this is the behaviour I want for toggle 2
+ToggleSwitch tglMonitorMain =  ToggleSwitch(SW_T_2_PIN, OPTO_3_ON_PIN, OPTO_3_OFF_PIN);
+// Opto pair 2 controls only two outlets due to wiring issues: this is the behaviour I want for toggle 3
+ToggleSwitch tglMonitorBoth =  ToggleSwitch(SW_T_3_PIN, OPTO_2_ON_PIN, OPTO_2_OFF_PIN);
 
 //Serial
 uint32_t serialWriteTimeLast = 0;
@@ -47,15 +54,18 @@ uint32_t serialWriteTimeLast = 0;
 void setup() {
     setupSerial();
     setupPinModes();    
+    setupMotors();
     setupInitialValues();
-    stoLast = millis();
 }
 
 void loop() {
-    readFaceplateInputs();
-    pcVolumeMain = ctrlPotPCVolMain.getValue();
-    setValuesForActiveCtrlMode();
-    setARGBStripColorValues();
+    readFaceplateInputs();    
+    setActiveControlPots();
+    moveAllMotors();
+    getControlPotValues();
+    setARGBColorValues();
+    setVolumeValues();
+    // setARGBStripColorValues();
     sendCommandsToPCIfWriteTimeElapsed();
     // printDiagnostics();
 }
@@ -77,13 +87,48 @@ void setupPinModes() {
     pinMode(ARGBW_G_PIN, OUTPUT);
 }
 
+void setupMotors() {
+    AFMS.begin();
+    motor1->setSpeed(0);
+    motor1->run(RELEASE);
+    motor2->setSpeed(0);
+    motor2->run(RELEASE);
+    motor3->setSpeed(0);
+    motor3->run(RELEASE);
+}
+
 void setupInitialValues() {
     pcAudioMode = digitalRead(SW_R_4_PIN);
     ctrlMode = digitalRead(SW_R_3_PIN);
-    ctrlModePrev = false;
-    ctrlModeChanged = false;
     lightTemperatureMode = digitalRead(SW_T_2_PIN);
+    initAllControlPotValues();
     setARGBColorValues();
+    setVolumeValues();
+}
+
+void initAllControlPotValues() {
+    ctrlPotKelv.setValue();
+    ctrlPotHue.setValue();
+    ctrlPotSat.setValue();
+    ctrlPotVal.setValue();
+    ctrlPotPCVolApp1.setValue();
+    ctrlPotPCVolApp2.setValue();
+    ctrlPotPCVolApp3.setValue();
+    ctrlPotPCVolMain.setValue();
+}
+
+void setARGBColorValues() {
+    if (lightTemperatureMode) {
+        argbHSV = colorTemperatureToHSV(ctrlPotKelv.getValue());
+    }
+    else {
+        argbHSV = colorHueToHSV(ctrlPotHue.getValue());
+    }
+    argbHSV.sat *= ctrlPotSat.getValuePercent();
+    argbHSV.val *= ctrlPotVal.getValuePercent();
+}
+
+void setVolumeValues() {
     pcVolumeApp1 = ctrlPotPCVolApp1.getValue();
     pcVolumeApp2 = ctrlPotPCVolApp2.getValue();
     pcVolumeApp3 = ctrlPotPCVolApp3.getValue();
@@ -93,46 +138,56 @@ void setupInitialValues() {
 void readFaceplateInputs() {
     pcAudioModePrev = pcAudioMode;
     pcAudioMode = digitalRead(SW_R_4_PIN);
-    ctrlModePrev = ctrlMode;
     ctrlMode = digitalRead(SW_R_3_PIN);
-    ctrlModeChanged = (ctrlMode != ctrlModePrev);
     lightTemperatureMode = digitalRead(SW_R_2_PIN);
     tglAudio.set();
     tglMonitorMain.set();
     tglMonitorBoth.set();
+    pcVolumeMain = ctrlPotPCVolMain.getValue(); // Always read: app-specific volumes are only read when needed
 }
 
-void setValuesForActiveCtrlMode() {
+void setActiveControlPots() {
     if (ctrlMode == CTRL_MODE_ARGB) {
-        setARGBColorValues();
+        ctrlPotKelv.setActive(lightTemperatureMode);
+        ctrlPotHue.setActive(!lightTemperatureMode);
+        ctrlPotSat.setActive(true);
+        ctrlPotVal.setActive(true);
+        ctrlPotPCVolApp1.setActive(false);
+        ctrlPotPCVolApp2.setActive(false);
+        ctrlPotPCVolApp3.setActive(false);
     }
     else if (ctrlMode == CTRL_MODE_VOLUME) {
-        setPCAppVolumeValues();
-    }
+        ctrlPotKelv.setActive(false);
+        ctrlPotHue.setActive(false);
+        ctrlPotSat.setActive(false);
+        ctrlPotVal.setActive(false);
+        ctrlPotPCVolApp1.setActive(true);
+        ctrlPotPCVolApp2.setActive(true);
+        ctrlPotPCVolApp3.setActive(true);
+    }    
+    ctrlPotPCVolMain.setActive(true);
 }
 
-void setARGBColorValues() {
-    if (lightTemperatureMode) {
-        argbHSV = colorTemperatureToHSV(ctrlPotKelv.getValue(ctrlModeChanged));
-    }
-    else {
-        argbHSV = colorHueToHSV(ctrlPotHue.getValue(ctrlModeChanged));
-    }
+void moveAllMotors() {
+    pot1.moveMotor();
+    pot2.moveMotor();
+    pot3.moveMotor();
+}
+
+void getControlPotValues() {
+    ctrlPotKelv.getValue();
+    ctrlPotHue.getValue();
     ctrlPotSat.getValue();
     ctrlPotVal.getValue();
-    argbHSV.sat *= ctrlPotSat.getValuePercent();
-    argbHSV.val *= ctrlPotVal.getValuePercent();
+    ctrlPotPCVolApp1.getValue();
+    ctrlPotPCVolApp2.getValue();
+    ctrlPotPCVolApp3.getValue();
+    ctrlPotPCVolMain.getValue();
 }
 
 void setARGBStripColorValues() {
     int val = int(float(analogRead(POT1_PIN)) / 4.0);
     analogWrite(ARGBW_G_PIN, val);
-}
-
-void setPCAppVolumeValues() {
-    pcVolumeApp1 = ctrlPotPCVolApp1.getValue(ctrlModeChanged);
-    pcVolumeApp2 = ctrlPotPCVolApp2.getValue(ctrlModeChanged);
-    pcVolumeApp3 = ctrlPotPCVolApp3.getValue(ctrlModeChanged);
 }
 
 void sendCommandsToPCIfWriteTimeElapsed() {
@@ -192,13 +247,19 @@ void printDiagnostics() {
     int pot2 = analogRead(POT2_PIN);
     int pot3 = analogRead(POT3_PIN);
     int pot4 = analogRead(POT4_PIN);
+    
     sprintf(text, "rsw1 %04i rsw2 %04i rsw3 %04i rsw4 %04i || tsw1 %04i tsw2 %04i tsw3  %04i || psw1 %04i psw2 %04i psw3 %04i || pot1 %04i pot2 %04i pot3 %04i pot4 %04i",
     rsw1, rsw2, rsw3, rsw4, tsw1, tsw2, tsw3, psw1, psw2, psw3, pot1, pot2, pot3, pot4);
-    Serial.println(text);
-    // char hsv_values[12];
-    // uint16_t temp = ctrlPotKelv.getValue();
-    // sprintf(hsv_values, "%04i %03i %03i %03i", temp, argbHSV.h, argbHSV.s, argbHSV.v);
-    // Serial.println(hsv_values);
+    // Serial.println(text);
+    
+    char hsv_values[12];
+    uint16_t temp = ctrlPotKelv.getValue();
+    sprintf(hsv_values, "%04i %03i %03i %03i", temp, argbHSV.h, argbHSV.s, argbHSV.v);
+    char volume_values[24];
+    sprintf(volume_values, "%04i %04i %04i %04i", ctrlPotPCVolApp1.getValue(), ctrlPotPCVolApp2.getValue(), ctrlPotPCVolApp3.getValue(), ctrlPotPCVolMain.getValue());
+    Serial.print(hsv_values);
+    Serial.print(" || ");
+    Serial.println(volume_values);
 }
 
 void showSTOLeds() {
