@@ -1,0 +1,6 @@
+{
+    "sketch": "SensorTests.ino",
+    "board": "arduino:avr:mega",
+    "port": "COM5",
+    "configuration": "cpu=atmega2560"
+}

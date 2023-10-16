@@ -1,0 +1,4 @@
+{
+    "sketch": "hue_control_hsv_03.ino",
+    "board": "arduino:avr:megaADK"
+}
