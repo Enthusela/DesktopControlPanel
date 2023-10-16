@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "NixieBargraphHat-rescue")(type "Legacy")(uri "${KIPRJMOD}/RpiNixieBarGraphHat3x-rescue.lib")(options "")(descr ""))
+  (lib (name "NixieBargraphHat-newparts")(type "Legacy")(uri "${KIPRJMOD}/NixieBargraphHat-newparts.lib")(options "")(descr ""))
+  (lib (name "nixies-us")(type "Legacy")(uri "${KIPRJMOD}/nixies-us.lib")(options "")(descr ""))
+  (lib (name "RpiNixieBarGraphHat3x-cache")(type "Legacy")(uri "${KIPRJMOD}/RpiNixieBarGraphHat3x-cache.lib")(options "")(descr ""))
+)

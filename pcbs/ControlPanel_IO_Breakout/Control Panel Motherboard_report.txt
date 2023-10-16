@@ -1,0 +1,45 @@
+PCB statistics report
+=====================
+- Date: 19/09/2023 2:00:27 PM
+- Project: Control Panel Motherboard
+- Board name: Control Panel Motherboard
+
+Board
+-----
+- Width: 91.3384 mm
+- Height: 74.6760 mm
+- Area: 6820.7864 mm²
+
+Pads
+----
+- Through hole: 159
+- SMD: 0
+- Connector: 0
+- NPTH: 0
+
+Vias
+----
+- Through vias: 0
+- Blind/buried: 0
+- Micro vias: 0
+
+Components
+----------
+
+|              | Front Side | Back Side | Total |
+|--------------|------------|-----------|-------|
+|THT:          |         43 |         0 |    43 |
+|SMD:          |          0 |         0 |     0 |
+|Unspecified:  |          0 |         0 |     0 |
+|Total:        |         43 |         0 |    43 |
+
+Drill holes
+-----------
+
+| Count | Shape |    X Size |    Y Size | Plated | Via/Pad | Start Layer | Stop Layer |
+|-------|-------|-----------|-----------|--------|---------|-------------|------------|
+|    59 | Round | 1.5200 mm | 1.5200 mm |    PTH |     Pad |        F.Cu |       B.Cu |
+|    36 | Round | 0.8000 mm | 0.8000 mm |    PTH |     Pad |        F.Cu |       B.Cu |
+|    30 | Round | 1.0000 mm | 1.0000 mm |    PTH |     Pad |        F.Cu |       B.Cu |
+|    18 | Round | 0.7000 mm | 0.7000 mm |    PTH |     Pad |        F.Cu |       B.Cu |
+|    16 | Round | 0.9000 mm | 0.9000 mm |    PTH |     Pad |        F.Cu |       B.Cu |

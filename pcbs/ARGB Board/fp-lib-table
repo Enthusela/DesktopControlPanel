@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ARGB_Board")(type "KiCad")(uri "${KIPRJMOD}/ARGB_Board.pretty")(options "")(descr ""))
+)

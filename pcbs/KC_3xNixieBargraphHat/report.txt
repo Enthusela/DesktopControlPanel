@@ -1,0 +1,91 @@
+Info: Backing up file 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\sym-lib-table' to 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\rescue-backup\sym-lib-table-2023-09-20-15-47-16'.
+Info: Backing up file 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\KC_3xNixieBargraphHat.sch' to 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\rescue-backup\KC_3xNixieBargraphHat-2023-09-20-15-47-16.sch'.
+Info: Backing up file 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\KC_3xNixieBargraphHat.kicad_pro' to 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\rescue-backup\KC_3xNixieBargraphHat-2023-09-20-15-47-16.kicad_pro'.
+Info: Backing up file 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\KC_3xNixieBargraphHat-cache.lib' to 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\rescue-backup\KC_3xNixieBargraphHat-cache-2023-09-20-15-47-16.lib'.
+Info: Backing up file 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\KC_3xNixieBargraphHat-rescue.lib' to 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\rescue-backup\KC_3xNixieBargraphHat-rescue-2023-09-20-15-47-16.lib'.
+Info: Backing up file 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\KC_3xNixieBargraphHat-rescue.dcm' to 'C:\Users\natha\OneDrive\Documents\Projects\Control Panel\Custom PCBs\KC_3xNixieBargraphHat\rescue-backup\KC_3xNixieBargraphHat-rescue-2023-09-20-15-47-16.dcm'.
+Info: Adding library 'KC_3xNixieBargraphHat-rescue', file '${KIPRJMOD}/KC_3xNixieBargraphHat-rescue.lib' to project symbol library table.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +170V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol Screw_Terminal_1x02 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol Screw_Terminal_1x03 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +170V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol Screw_Terminal_1x03 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +5V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol IN-9 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +170V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol BSP129 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol Screw_Terminal_1x03 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +3.3V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol Raspberry_PI_Zero_Hat mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +5V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol BSP129 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol IN-9 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol MCP6001 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol 2N7002 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol D_x2_Serial_AKC mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol D_x2_Serial_AKC mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +3.3V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +5V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +3.3V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol D_x2_Serial_AKC mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol D_x2_Serial_AKC mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol 2N7002 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol R mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol +5V mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol MCP6001 mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol C mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Symbol GND mapped to symbol library 'KC_3xNixieBargraphHat-rescue'.
+Info: Symbol library table mapping complete!
+Info: Created project symbol library table.
+

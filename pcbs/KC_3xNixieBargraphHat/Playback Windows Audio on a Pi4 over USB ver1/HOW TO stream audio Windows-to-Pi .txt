@@ -1,0 +1,83 @@
+HOW TO stream audio from Windows to Pi4 over a USB ethernet gadget connection 
+version 1.0 by Charlie Laub. Released 3 SEPT 2019.
+
+This document describes how to implement a system consisting of a Windows (7,8,10) "source" with playback on a Pi 4 over a USB ethernet gadget connection via USB-C. This does not work with any variants of the Pi 2/3 and the Pi Zero is a bit too underpowered for this task. In this embodiment, the Pi is functioning like a DAC, however, the gstreamer pipeline can be modified so the Pi also performs DSP using LADSPA plugins. 
+
+REQUIREMENTS:
+Pi 4 with power supplied via the GPIO pins (not the USB-C port!). See NOTE 1
+USB-C to USB-C cable, or suitable USB-C to USB3.x adapter
+A USB 3.x port on the Windows machine
+Gstreamer installed on both the Windows computer and Pi 4.
+Windows helper script "stream_my_audio.bat"
+Bash helper script "receive_my_audio.sh"
+
+INSTALLATION ON WINDOWS:
+Download the Windows bath file "stream_my_audio.bat" to the Desktop on the Windows machine.
+Install Gstreamer executable. For Windows (use MinGW 32 or 64 bit runtime installer): [url]https://gstreamer.freedesktop.org/download/[/url]
+If you use the 32 bit version, you will need to edit line 72 of the batch file with the complete path to the Gstreamer executable. For the 64 bit version on my machine, to call Gstreamer I use in line 72:
+  c:\gstreamer\1.0\X86_64\bin\gst-launch-1.0.exe
+For the 32-bit version of Gstreamer, the path may contain X86_32 in place of X86_64. Please verify this for your installation and edit the path as necessary. You can test the call by typing in a Windows command.com window:
+c:\gstreamer\1.0\X86_64\bin\gst-launch-1.0.exe --version
+If the path is correct, Gstreamer will output the version number and exit.
+It is strongly suggested that the Windows audio loopback device "VB-Cable" is installed and used. See:
+https://www.vb-audio.com/Cable/
+
+
+INSTALLATION ON RASPBERRY PI 4:
+Install Gstreamer. For the Pi 4 (Debian Based) run the following commands in a terminal window:
+[CODE]
+sudo apt update
+sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-pulseaudio
+[/CODE]
+Download the bash helper script to the Pi. The type the command:
+[CODE]chmod +x receive_my_audio.sh[/CODE]
+This will make the file executable. 
+On the Pi, open for editing as root the file /etc/modules
+[CODE]sudo nano /etc/modules[/CODE]
+Add the lines:
+[CODE]dwc2
+g_ether[/CODE]
+Type ctrl-S to save the file, then crtl-X to exit.
+On the Pi, open for editing as root the file /etc/dhcpcd.conf
+[CODE]sudo nano /etc/dhcpcd.conf[/CODE]                                    
+At the end of the file, add the lines:
+[CODE]interface usb0
+static ip_address=192.168.2.2/24
+static routers=192.168.2.1
+nogateway[/CODE]
+Type Ctrl-s to save the file, then Crtl-x to exit the editor.
+Reboot the Pi by typing
+sudo reboot
+
+INTIAL SET-UP:
+Connect the ports of the two machines using the cable. This MUST be via the USB-C port on the Pi. Do not attempt to power the Pi via this connection!
+If the Pi has been set up properly, Windows will install the RNDIS driver for the USB ethernet gadget connection. This will appear as a new device under Windows.
+For help with the next few steps, see this page at Adafruit:
+https://learn.adafruit.com/turning-your-raspberry-pi-zero-into-a-usb-gadget/ethernet-gadget#if-you-are-using-windows-as-the-host-machine-3-36 
+With the connection active, open the ethernet gadget device properties and then open the ipv4 properties.
+Click the radio button "use following IP address", the set the IP address to 192.168.2.3 and the mask to 255.255.255.0. Leave the default gateway blank. 
+Note, do not use the IP address shown in the Adafruit tutorial, use 192.168.2.3 instead.
+NOTE: On my Windows-10 machine, the way to get to the ethernet gadget properties was different that what is shown on the Adafruit page. 
+Disconnect the cable between machines, wait a few seconds, and then reconnect it. This will load the ip4 settings on the Windows machine for the RNDIS ethernet gadget driver.
+
+Now we need to choose the sample rate and bit depth that will be streamed over this connection. This is primarily determined on the Windows machine. In gstreamer under Windows, WASAPI gets audio from the default playback device and the audio will be in the sample rate and format of that device. I use VB-Cable on my system, but you can use any playback device as long as that device supports the audio format you would like to use. Only 16 or 24 bit formats can be streamed, so choose one of these. The scripts come preconfigured for a sample rate of 96kHz and 24-bit audio, so you might start wtih that. Set your preferred audio device to this sample rate and format now. If you are using VB-Cable, this should be set both under "playback devices" and "recording devices". Audio will be resampled to this format within Windows. If you wish to use other sample rates and formats, the scripts on both machines must be edited to reflect these changes. There are sections at the top of each file where you will find the relevent parameters.
+
+On the Pi, confirm which audio device you wish to use by typing:
+[CODE]aplay -l[/CODE]
+Identify the desired output card and device from the list of audio devices. 
+Open the shell script on the Pi:
+[CODE]nano receive_my_audio.sh[/CODE] 
+Near the top, find the line:
+[CODE]ALSA_output_device=hw:0,1[/CODE]
+The hw device to the right of the equals sign is in the format hw:CARD#,DEVICE#. Change the value to the desired card and device that you identified from the aplay output.
+If you wish to make changes to other program variables you can do this now. When you are ready. type Ctrl-s to save the file, then Crtl-x to exit the editor.
+   
+
+USAGE:
+On the Windows machine, each time you wish to stream audio to the Pi, run the batch file. On the Pi, you can manually run the shell script when you would like to stream audio, or you can set the script to run at start up. It will respond to incoming audio data by launching gstreamer and you should hear audio.
+
+
+NOTES:
+1: One way to do this, and get 8 analog output channels, is to use the [URL="https://www.diyaudio.com/forums/pc-based/341590-using-raspberry-pi-4-usb-dsp-dac-post5890679.html"]HDMI extractor HAT described in this post[/URL].
+
+

@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name "cache_lib")(type "Legacy")(uri "${KIPRJMOD}/NixieBargraphHat-cache.lib")(options "")(descr ""))
+  (lib (name "newparts_lib")(type "Legacy")(uri "${KIPRJMOD}/NixieBargraphHat-newparts.lib")(options "")(descr ""))
+  (lib (name "nixies_us")(type "Legacy")(uri "${KIPRJMOD}/nixies-us.lib")(options "")(descr ""))
+)

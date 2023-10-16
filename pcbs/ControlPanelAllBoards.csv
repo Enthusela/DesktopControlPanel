@@ -1,0 +1,24 @@
+Board,Qty,In Mouser Cart,In Jaycar Cart,In X-On Cart,Footprint,Reference,Value,Datasheet
+Selector,13,N/A,N/A,N/A,Connector_Pin:Pin_D1.0mm_L10.0mm,>  J1-J13,Conn_01x01_Female,~
+Mega_Shield,1,N/A,N/A,N/A,PCM_arduino-library:Arduino_Mega2560_Shield,    XA1,Arduino_Mega2560_Shield,https://docs.arduino.cc/hardware/mega-2560
+MegaShield,1,No,Yes,No,Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical,    J3,IDC_RF,~
+RF_Breakout,1,No,Yes,No,Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical,    IDC_RF1,IDC_SW,~
+MegaShield,1,Yes,Yes,No,Connector_IDC:IDC-Header_2x10_P2.54mm_Vertical,    J1,IDC_SW,~
+IO_Breakout,1,No,Yes,No,Connector_IDC:IDC-Header_2x10_P2.54mm_Vertical,    J11,J_IDC_SW_IN,~
+MegaShield,1,No,Yes,No,IDC Cable _2x05 _P2.54mm_Vertical,N/A,,
+MegaShield,1,No,Yes,No,IDC Cable _2x10 _P2.54mm_Vertical,N/A,,
+MegaShield,1,Yes,,Yes,Button_Switch_THT:SW_DIP_SPSTx02_Slide_9.78x7.26mm_W7.62mm_P2.54mm,    SW2,SW_DIP_x02,~
+MegaShield,1,Yes,,Yes,Button_Switch_THT:SW_PUSH_6mm_H5mm,    SW1,SW_Push,~
+RF_Breakout,4,Yes,,Yes,LED_THT:LED_D3.0mm,">  D1, D3, D5, D7",LED-ON,~
+RF_Breakout,4,Yes,,Yes,LED_THT:LED_D3.0mm,">  D2, D4, D6, D8",LED-OFF,~
+RF_Breakout,2,Yes,,Yes,Package_DIP:DIP-16_W7.62mm,">  U2, U3",LTV-847,http://optoelectronics.liteon.com/upload/download/DS-70-96-0016/LTV-8X7%20series.PDF
+IO_Breakout,1,Yes,,Yes,Package_DIP:DIP-4_W7.62mm,    U1,LTV-817,http://www.us.liteon.com/downloads/LTV-817-827-847.PDF
+Selector,12,No,,Yes,Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal,>  R1-R12,330R,~
+IO_Breakout,1,Yes,,Yes,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,    R1,330R,~
+RF_Breakout,8,No,,Yes,Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal,>  R2-R9,330R,~
+IO_Breakout,3,Yes,,Yes,TerminalBlock:TerminalBlock_bornier-2_P5.08mm,">  J9, J10, J12",Screw_Terminal_01x02,~
+RF_Breakout,1,Yes,,Yes,TerminalBlock:TerminalBlock_bornier-2_P5.08mm,    J22,Screw_Terminal_01x02,~
+MegaShield,1,Yes,,Yes,TerminalBlock:TerminalBlock_bornier-3_P5.08mm,    J2,Screw_Terminal_01x03,~
+Selector,1,Yes,,Yes,TerminalBlock:TerminalBlock_bornier-3_P5.08mm,    J14,Screw_Terminal_01x03,~
+IO_Breakout,13,Yes,,Yes,TerminalBlock:TerminalBlock_bornier-3_P5.08mm,">  J1-J8, J13-J17",Screw_Terminal_01x03,~
+RF_Breakout,4,Yes,,Yes,TerminalBlock:TerminalBlock_bornier-3_P5.08mm,>  J18-J21,Screw_Terminal_01x03,~
