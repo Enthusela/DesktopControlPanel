@@ -1,1 +1,4 @@
 **/*-backup*
+/.vscode
+/__pycache__
+/.git
