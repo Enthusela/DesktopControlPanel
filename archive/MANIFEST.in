@@ -1,3 +1,0 @@
-graft DCP/static
-graft DCP/templates
-global-exclude *.pyc

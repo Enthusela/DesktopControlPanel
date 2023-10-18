@@ -1,8 +1,0 @@
-#line 1 "C:\\Users\\natha\\OneDrive\\Documents\\Coding\\GitHub\\RF_Test\\.vscode\\arduino.json"
-{
-    "sketch": "RF_Test.ino",
-    "configuration": "cpu=atmega2560",
-    "board": "arduino:avr:mega",
-    "output": ".//build",
-    "port": "COM5"
-}
