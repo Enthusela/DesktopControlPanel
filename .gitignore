@@ -1,4 +1,4 @@
 **/*-backup*
 /.vscode
 /__pycache__
-//*.codeworkspace
+//*.code-workspace
