@@ -2,7 +2,7 @@
   "name": "js",
   "version": "1.0.0",
   "description": "",
-  "main": "dcp_site_server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,7 @@
     "onoff": "^6.0.3",
     "puppeteer-core": "^19.8.1",
     "serialport": "^10.5.0",
+    "sharp": "^0.32.6",
     "socket.io": "^4.6.1"
   }
 }

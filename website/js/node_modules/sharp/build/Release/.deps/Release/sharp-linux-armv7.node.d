@@ -1,0 +1,1 @@
+cmd_Release/sharp-linux-armv7.node := ln -f "Release/obj.target/sharp-linux-armv7.node" "Release/sharp-linux-armv7.node" 2>/dev/null || (rm -rf "Release/sharp-linux-armv7.node" && cp -af "Release/obj.target/sharp-linux-armv7.node" "Release/sharp-linux-armv7.node")

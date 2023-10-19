@@ -45,30 +45,8 @@ app.get('/posts/:filename', (req, res) => {
     });
 });
 
-app.get('/thumbs/:imgname', async (req, res) => {
-    const imgName = req.params.imgname;
-    const thumbnailHTMLPath = `/public/imgs/thumbs/${imgName}`;
-    const thumbnailAbsolutePath = path.join(__dirname, 'public/imgs/thumbs', imgName);
-    if (false && fs.existsSync(thumbnailAbsolutePath)) {
-        res.setHeader('Thumb-Path', thumbnailHTMLPath);
-        res.end('ok');
-        return;
-    }
-    const highResPathAbsolute = path.join(__dirname, 'public/imgs/hires', imgName);
-    if (!fs.existsSync(highResPathAbsolute)) {
-        res.status(500).send('High-res image not found, cannot get thumbnail.')
-        return;
-    }
-    try {
-        await makeThumbnail(highResPathAbsolute, thumbnailAbsolutePath);
-        res.setHeader('Thumb-Path', thumbnailHTMLPath);
-        res.end('ok');
-    } catch (error) {
-        res.status(500).send(`/thumbs/:imgname failed: ${error}`);
-    }
-});
-
 async function makeThumbnail(hiresPath, thumbPath) {
+    console.log(`Making thumbnail from ${hiresPath}`);
     try {
         const metadata = await sharp(hiresPath).metadata();
         const maxDimension = 720;
@@ -86,7 +64,54 @@ async function makeThumbnail(hiresPath, thumbPath) {
     }
 }
 
+async function readImageThumbs(highResDir, thumbDir) {
+    fs.readdir(highResDir, async function (err, files) {
+        if (err) {
+            console.error("Could not list the directory.", err);
+            process.exit(1);
+        }
+        files.forEach(async function (file, index) {
+            var thumbPath = path.join(thumbDir, file);             // for use in JS
+            if(fs.existsSync(thumbPath)) {
+                return;
+            }
+            
+            var hiresPath = path.join(highResDir, file);
+            if (!fs.existsSync(hiresPath)) {
+                console.error(`Thumbnail and high-res image missing for ${thumbPath}: cannot generate thumbnail.`)
+                return;
+            }
+
+            try {
+                console.log(`Thumbnail missing for ${thumbPath}: generating...`)
+                await makeThumbnail(hiresPath, thumbPath);
+                console.log(`Thumbnail generation for ${thumbPath} succeeded.`)
+                // console.log(`thumbsHTMLPath: ${thumbsHTMLPath}`)
+            } catch (error) {
+                console.error(`Thumbnail generation for ${thumbPath} failed: ${error}`);
+            }
+        });
+    });
+    return 0;
+}
+
+async function getMissingThumbs () {
+    console.log('Starting generating missing thumbnails...');
+    const highResDir = path.join(__dirname, 'public/images/hires');
+    const thumbDir = path.join(__dirname, 'public/images/thumbs');
+    
+    try {
+        await readImageThumbs(highResDir, thumbDir);
+        console.log(`Finished generating missing thumbnails.`);
+    } catch (error) {
+        console.error(`Error during generation of thumbnails: ${error}`);
+    }
+}
+
+
+getMissingThumbs();
 // Listen on port 8000
 app.listen(port, () => {
     console.log(`Server listening on port ${port}.`)
 });
+

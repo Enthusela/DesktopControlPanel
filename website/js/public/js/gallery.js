@@ -1,3 +1,5 @@
+// const path = require('path');
+
 function openLightboxModal() {
     document.getElementById("lightboxModal").style.display = "block";
 }
@@ -34,10 +36,11 @@ function showLightboxImage(imageID) {
             break;
         }
     }
-
+    
     // Update displayed image based on new image
     let currentImage = document.getElementById("lightboxImage");
-    currentImage.src = newImage.src;
+    let newImageHiResSrc = newImage.src.replace('thumbs', 'hires');
+    currentImage.src = newImageHiResSrc;
     currentImage.setAttribute("imageid", newImageID);
     let currentImageNumber = document.getElementById("lightboxImageNumber");
     currentImageNumber.innerHTML = newImageID + " / " + imageCount;
