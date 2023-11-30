@@ -116,6 +116,7 @@ def read_cmds(sock, mask):
 
 def parse_server_cmds(cmds):
     """Parses the commands received from the server and updates the appropriate variables"""
+    # TODO: Update server to send commands as JSON
     if cmds:
         cmds = re.split(",", cmds)[:-1]
     
@@ -154,16 +155,16 @@ def set_audio_device(audio_device):
 
 def set_audio_levels(levels):
     audio_apps = [
-        {"id": "Discord.exe",    "group": "V1"},
-        {"id": "chrome.exe",     "group": "V2"},
-        {"id": "msedge.exe",     "group": "V2"},
-        {"id": "firefox.exe",    "group": "V2"},
-        {"id": "Spotify.exe",    "group": "V2"},
-        {"id": "cod.exe",        "group": "V3"},
+        {"id": "Discord.exe",     "group": "V1"},
+        {"id": "chrome.exe",      "group": "V2"},
+        {"id": "msedge.exe",      "group": "V2"},
+        {"id": "firefox.exe",     "group": "V2"},
+        {"id": "Spotify.exe",     "group": "V2"},
+        {"id": "cod.exe",         "group": "V3"},
         {"id": "csgo.exe",        "group": "V3"},
-        {"id": "Overwatch.exe",  "group": "V3"},
-        {"id": "HomeworldRM.exe",  "group": "V3"},
-        {"id": "r5apex.exe",  "group": "V3"},
+        {"id": "Overwatch.exe",   "group": "V3"},
+        {"id": "HomeworldRM.exe", "group": "V3"},
+        {"id": "r5apex.exe",      "group": "V3"},
         {"id": "InsurgencyClient-Win64-Shipping.exe", "group": "V3"}
     ]
     # Get list of valid audio sessions currently open
