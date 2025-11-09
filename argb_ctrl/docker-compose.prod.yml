@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web_app:
+    build:
+      context: ./web_app
+      target: production
+    container_name: argb_web_app_prod
+    ports:
+      - "8080:8080"
+    devices:
+      # Arduino on Raspberry Pi
+      - /dev/ttyACM0:/dev/ttyACM0
+    privileged: false
+    # On Raspberry Pi, we need access to GPIO
+    volumes:
+      - /sys/class/gpio:/sys/class/gpio
+      - /dev/gpiomem:/dev/gpiomem
+    environment:
+      - NODE_ENV=production
+      - GPIO_MODE=hardware
+      - SERIAL_PORT=/dev/ttyACM0
+    restart: always
+    networks:
+      - argb_network
+
+networks:
+  argb_network:
+    driver: bridge
