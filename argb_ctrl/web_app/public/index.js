@@ -9,6 +9,10 @@ window.addEventListener('load', function () {
     });
     var numberInputs = document.getElementsByClassName('numberInput');
     for (var i = 0; i < numberInputs.length; i++) {
+        // Listen for both 'input' (while dragging) and 'change' (when released)
+        numberInputs[i].addEventListener('input', function () {
+            emitNumberInputValue(this.id);
+        });
         numberInputs[i].addEventListener('change', function () {
             emitNumberInputValue(this.id);
         });

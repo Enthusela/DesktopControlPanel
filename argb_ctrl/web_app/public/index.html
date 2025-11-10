@@ -123,8 +123,8 @@
 
     <div class="control-group">
         <label>
-            s
-            <span class="value-display" id="hue-value">0</span>
+            Hue
+            <span class="value-display" id="hsv_hue-value">0</span>
         </label>
         <input type="range" id="hsv_hue" class="numberInput" min="0" max="255" value="0">
     </div>
@@ -132,7 +132,7 @@
     <div class="control-group">
         <label>
             Saturation
-            <span class="value-display" id="saturation-value">255</span>
+            <span class="value-display" id="hsv_saturation-value">255</span>
         </label>
         <input type="range" id="hsv_saturation" class="numberInput" min="0" max="255" value="255">
     </div>
@@ -140,7 +140,7 @@
     <div class="control-group">
         <label>
             Brightness
-            <span class="value-display" id="brightness-value">255</span>
+            <span class="value-display" id="hsv_brightness-value">255</span>
         </label>
         <input type="range" id="hsv_brightness" class="numberInput" min="0" max="255" value="255">
     </div>
@@ -152,12 +152,14 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="index.js"></script>
     <script>
-        // Update value displays
+        // Update value displays on slider movement
         document.querySelectorAll('input[type="range"]').forEach(input => {
             const valueDisplay = document.getElementById(input.id + '-value');
-            input.addEventListener('input', function() {
-                valueDisplay.textContent = this.value;
-            });
+            if (valueDisplay) {
+                input.addEventListener('input', function() {
+                    valueDisplay.textContent = this.value;
+                });
+            }
         });
 
         // Connection status
