@@ -4,7 +4,7 @@ Test script to verify Arduino serial communication.
 Sends HSV color values to the Arduino and monitors the connection.
 
 Usage:
-    python3 test_serial.py /dev/ttyACM0
+    python3 argb-test.py /dev/ttyACM0
 """
 
 import serial

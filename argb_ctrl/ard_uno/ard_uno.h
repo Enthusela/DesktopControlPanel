@@ -17,7 +17,7 @@
 #define ARGB_LED_SAT_MIN 0
 #define ARGB_LED_SAT_MAX 255
 #define ARGB_LED_VAL_MIN 0
-#define ARGB_LED_VAL_MAX 170
+#define ARGB_LED_VAL_MAX 170 // prevents overpowering the ARGB LEDs
 #define ARGB_HUE_BLUE 120
 #define ARGB_HUE_GREEN 240
 #define ARGB_HUE_RED 0
