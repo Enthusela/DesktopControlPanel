@@ -2,3 +2,19 @@
 /.vscode
 /__pycache__
 //*.code-workspace
+
+# Node.js
+**/node_modules/
+**/package-lock.json
+
+# Python
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/uv.lock
+
+# Environment
+**/.env
+
+# Docker
+**/.dockerignore

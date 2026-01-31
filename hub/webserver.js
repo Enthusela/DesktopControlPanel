@@ -126,7 +126,7 @@ function writeHsvToPort(lightsOn, h, s, b) {
     if (lightsOn) {
         hsb = Uint8Array.from([h, s, b]);
     }
-    console.log('Writing to port: _,' + hsb);
+    console.log('Writing to port ' + SERIAL_PORT + ': _,' + hsb);
     port.write('_');
     port.write(hsb);
 }

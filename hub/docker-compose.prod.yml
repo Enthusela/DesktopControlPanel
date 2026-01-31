@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  web_app:
+  hub:
     build:
-      context: ./web_app
+      context: .
       target: production
-    container_name: argb_web_app_prod
+    container_name: desktop_hub_prod
     ports:
       - "8080:8080"
     devices:
@@ -22,8 +22,8 @@ services:
       - SERIAL_PORT=/dev/ttyACM0
     restart: always
     networks:
-      - argb_network
+      - desktop_network
 
 networks:
-  argb_network:
+  desktop_network:
     driver: bridge

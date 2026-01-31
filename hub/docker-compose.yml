@@ -1,21 +1,21 @@
 version: '3.8'
 
 services:
-  web_app:
+  hub:
     build:
-      context: ./web_app
+      context: .
       target: development
-    container_name: argb_web_app
+    container_name: desktop_hub
     ports:
       - "8080:8080"
     devices:
       # Pass through Arduino USB device
       # Update this path based on your Arduino's device path
-      - ${SERIAL_PORT:-/dev/ttyACM0}:${SERIAL_PORT:-/dev/ttyACM0}
+      - ${SERIAL_PORT:-/dev/ttyACM1}:${SERIAL_PORT:-/dev/ttyACM1}
     privileged: false
     volumes:
       # Mount source code for hot reload during development
-      - ./web_app:/app
+      - .:/app
       # Prevent overwriting node_modules
       - /app/node_modules
     environment:
@@ -23,11 +23,11 @@ services:
       # Set to 'mock' to disable GPIO on non-Raspberry Pi systems
       - GPIO_MODE=${GPIO_MODE:-mock}
       # Serial port path (can be overridden)
-      - SERIAL_PORT=${SERIAL_PORT:-/dev/ttyACM0}
+      - SERIAL_PORT=${SERIAL_PORT:-/dev/ttyACM1}
     restart: unless-stopped
     networks:
-      - argb_network
+      - desktop_network
 
 networks:
-  argb_network:
+  desktop_network:
     driver: bridge
